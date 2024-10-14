@@ -92,4 +92,13 @@ public class Job {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return System.lineSeparator() + "ID: " + this.id +  System.lineSeparator() + "Name: " + (!name.isEmpty() ? name : "Data not available") + System.lineSeparator()
+                + "Employer: " + (!employer.getValue().isEmpty() ? employer : "Data not available") + System.lineSeparator() + "Location: " +
+                (!location.getValue().isEmpty() ? location : "Data not available") + System.lineSeparator()
+                + "Position Type: " + (!positionType.getValue().isEmpty() ? positionType : "Data not available") + System.lineSeparator() +
+                "Core Competency: " + (!coreCompetency.getValue().isEmpty() ? coreCompetency : "Data not available") + System.lineSeparator();
+    }
 }
