@@ -5,7 +5,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class JobTest {
-    //TODO: Create your unit tests here
     @Test
     public void testSettingJobId(){
         Job jobOne = new Job();
@@ -47,14 +46,18 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
         Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String testString = "\r\nID: " + testJob.getId() + "\r\nName: Product tester\r\nEmployer: ACME\r\nLocation: Desert\r\nPosition Type: Quality control\r\nCore Competency: Persistence\r\n";
+        String testString = System.lineSeparator() + "ID: " + testJob.getId() + System.lineSeparator() + "Name: Product tester" +
+                System.lineSeparator() + "Employer: ACME" + System.lineSeparator() + "Location: Desert" + System.lineSeparator() +
+                "Position Type: Quality control" + System.lineSeparator() + "Core Competency: Persistence" + System.lineSeparator();
         assertEquals(testString, testJob.toString());
     }
 
     @Test
     public void testToStringHandlesEmptyField(){
         Job testJob = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String testString = "\r\nID: " + testJob.getId() + "\r\nName: Product tester\r\nEmployer: Data not available\r\nLocation: Desert\r\nPosition Type: Quality control\r\nCore Competency: Persistence\r\n";
+        String testString = System.lineSeparator() + "ID: " + testJob.getId() + System.lineSeparator() + "Name: Product tester" +
+                System.lineSeparator() + "Employer: Data not available" + System.lineSeparator() + "Location: Desert" + System.lineSeparator() +
+                "Position Type: Quality control" + System.lineSeparator() + "Core Competency: Persistence" + System.lineSeparator();
         assertEquals(testJob.toString(), testString);
     }
 }
